@@ -57,7 +57,7 @@ spec:
               name: db-password
               key: password
         - name: spring.datasource.url
-          value: jdbc:mysql://service/db-service:3306/example
+          value: jdbc:mysql://db-deployment-7b4c9885bc-lhjcj:3306/example
       restartPolicy: Always
 ---
 apiVersion: apps/v1
