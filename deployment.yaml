@@ -54,7 +54,7 @@ spec:
       - name: db-data
         emptyDir: {}
 ---
-
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
@@ -82,7 +82,7 @@ spec:
       restartPolicy: Always
 ---
 
-
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
