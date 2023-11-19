@@ -1,24 +1,105 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   labels:
+#     app.kubernetes.io/instance: react-dev
+#   name: react-app
+#   namespace: react_dev_env
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: react-app
+#   template:
+#     metadata:
+#       labels:
+#         app: react-app
+#     spec:
+#       containers:
+#         - image: >-
+#             pasu1825/react-java-mysql_frontend:583f9b6131b41eb1e29cb35916ccef0c47484411
+#           imagePullPolicy: Always
+#           name: react-app
+#           ports:
+#             - containerPort: 3000
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app.kubernetes.io/instance: react-dev
-  name: react-app
-  namespace: react_dev_env
+  name: db-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: react-app
+      app: db
   template:
     metadata:
       labels:
-        app: react-app
+        app: db
     spec:
       containers:
-        - image: >-
-            pasu1825/react-java-mysql_frontend:583f9b6131b41eb1e29cb35916ccef0c47484411
-          imagePullPolicy: Always
-          name: react-app
-          ports:
-            - containerPort: 3000
+      - name: db
+        image: mysql:8.0.19
+        env:
+        - name: MYSQL_DATABASE
+          value: example
+        - name: MYSQL_ROOT_PASSWORD_FILE
+          value: /run/secrets/db-password
+        volumeMounts:
+        - name: db-data
+          mountPath: /var/lib/mysql
+      restartPolicy: Always
+      volumes:
+      - name: db-data
+        emptyDir: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: pasu1825/react-java-mysql_backend:583f9b6131b41eb1e29cb35916ccef0c47484411
+        env:
+        - name: MYSQL_HOST
+          value: db
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: password
+      restartPolicy: Always
+---
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: pasu1825/react-java-mysql_frontkend:583f9b6131b41eb1e29cb35916ccef0c47484411
+      restartPolicy: Always
+---
+
