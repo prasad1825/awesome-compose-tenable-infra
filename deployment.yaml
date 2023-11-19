@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: prasad1825/awesome-compose-tenable:604ac3b39a717bbceb7e0386debaed67fd7857bb
+          image: pasu1825/react-java-mysql_frontend:583f9b6131b41eb1e29cb35916ccef0c47484411
           imagePullPolicy: Always
           ports:
             - containerPort: 80
