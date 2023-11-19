@@ -18,8 +18,8 @@ spec:
         env:
         - name: MYSQL_DATABASE
           value: example
-        - name: MYSQL_ROOT_PASSWORD_FILE
-          value: /run/secrets/db-password
+        - name: MYSQL_ROOT_PASSWORD
+          value: db-57xsl
         volumeMounts:
         - name: db-data
           mountPath: /var/lib/mysql
