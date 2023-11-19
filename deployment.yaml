@@ -1,29 +1,3 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   labels:
-#     app.kubernetes.io/instance: react-dev
-#   name: react-app
-#   namespace: react_dev_env
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: react-app
-#   template:
-#     metadata:
-#       labels:
-#         app: react-app
-#     spec:
-#       containers:
-#         - image: >-
-#             pasu1825/react-java-mysql_frontend:583f9b6131b41eb1e29cb35916ccef0c47484411
-#           imagePullPolicy: Always
-#           name: react-app
-#           ports:
-#             - containerPort: 3000
-
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -81,7 +55,6 @@ spec:
               key: password
       restartPolicy: Always
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -100,5 +73,3 @@ spec:
       - name: frontend
         image: pasu1825/react-java-mysql_frontend:583f9b6131b41eb1e29cb35916ccef0c47484411
       restartPolicy: Always
----
-
