@@ -27,9 +27,9 @@ spec:
       # volumes:
       # - name: db-data
       #   emptyDir: {}
-      volumeMounts:
-        - name: db-data
-          mountPath: /var/lib/mysql
+      # volumeMounts:
+      #   - name: db-data
+      #     mountPath: /var/lib/mysql
 ---
 apiVersion: apps/v1
 kind: Deployment
