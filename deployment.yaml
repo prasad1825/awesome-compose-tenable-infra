@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: db
-        image: mariadb:10.6.4-focal
+        image: pasu1825/mariadb:10.6.4-focal 
         env:
         - name: MYSQL_DATABASE
           value: example
