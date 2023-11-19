@@ -18,20 +18,18 @@ spec:
         env:
         - name: MYSQL_DATABASE
           value: example
-        # - name: MYSQL_ROOT_PASSWORD_FILE
-        #   value: /run/secrets/db-password
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: db-password
-              key: password
+        - name: MYSQL_ROOT_PASSWORD_FILE
+          value: /run/secrets/db-password
         volumeMounts:
         - name: db-data
           mountPath: /var/lib/mysql
       restartPolicy: Always
-      volumes:
-      - name: db-data
-        emptyDir: {}
+      # volumes:
+      # - name: db-data
+      #   emptyDir: {}
+      volumeMounts:
+        - name: db-data
+          mountPath: /var/lib/mysql
 ---
 apiVersion: apps/v1
 kind: Deployment
