@@ -50,14 +50,12 @@ spec:
         image: pasu1825/react-java-mysql_backend:583f9b6131b41eb1e29cb35916ccef0c47484411
         env:
         - name: MYSQL_HOST
-          value: db
+          value: db-deployment-7b4c9885bc-lhjcj
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
               name: db-password
               key: password
-        - name: spring.datasource.url
-          value: jdbc:mysql://db-deployment-7b4c9885bc-lhjcj:3306/example
       restartPolicy: Always
 ---
 apiVersion: apps/v1
