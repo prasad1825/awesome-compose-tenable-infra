@@ -20,7 +20,7 @@ spec:
           value: example
         # - name: MYSQL_ROOT_PASSWORD_FILE
         #   value: /run/secrets/db-password
-        - name: MYSQL_ROOT_PASSWORD_FILE
+        - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
               name: db-password
