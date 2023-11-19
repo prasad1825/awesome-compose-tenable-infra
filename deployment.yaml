@@ -49,8 +49,12 @@ spec:
       - name: backend
         image: pasu1825/react-java-mysql_backend:583f9b6131b41eb1e29cb35916ccef0c47484411
         env:
-        - name: MYSQL_HOST
+        - name: MYSQL_SERVICE_HOST
           value: 10.109.173.83
+        - - name: MYSQL_SERVICE_PORT
+          value: 3306
+        - name: MYSQL_HOST
+          value: db
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
