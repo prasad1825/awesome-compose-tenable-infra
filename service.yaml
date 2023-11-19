@@ -49,7 +49,7 @@ spec:
   - protocol: TCP
     port: 9090
     targetPort: 9090
-  type: NodePort
+  
 
 ---
 
@@ -66,4 +66,4 @@ spec:
   - protocol: TCP
     port: 3000
     targetPort: 3005
-  type: NodePort
+  
