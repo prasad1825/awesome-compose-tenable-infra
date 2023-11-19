@@ -51,7 +51,7 @@ spec:
         env:
         - name: MYSQL_SERVICE_HOST
           value: 10.109.173.83
-        - - name: MYSQL_SERVICE_PORT
+        - name: MYSQL_SERVICE_PORT
           value: 3306
         - name: MYSQL_HOST
           value: db
