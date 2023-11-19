@@ -47,7 +47,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: pasu1825/react-java-mysql_backend:08c81c842a9a397affb060c30f7cc7b2cceb9ad5
+        image: pasu1825/react-java-mysql_backend:26f61e5e412826778d9a72ea9c15757deb0e0204
         env:
         - name: MYSQL_HOST
           value: db
@@ -76,7 +76,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: pasu1825/react-java-mysql_frontend:08c81c842a9a397affb060c30f7cc7b2cceb9ad5
+        image: pasu1825/react-java-mysql_frontend:26f61e5e412826778d9a72ea9c15757deb0e0204
       restartPolicy: Always
 ---
 apiVersion: v1
