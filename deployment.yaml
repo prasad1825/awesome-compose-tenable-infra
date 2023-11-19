@@ -100,7 +100,7 @@ spec:
       - name: grafana
         image: grafana/grafana:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 3008
 ---
 apiVersion: apps/v1
 kind: Deployment
