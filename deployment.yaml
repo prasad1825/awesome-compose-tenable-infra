@@ -52,7 +52,7 @@ spec:
         - name: MYSQL_HOST
           value: db
         - name: spring.datasource.url
-          value: jdbc:mysql://${MYSQL_HOST:db}:3306/example
+          value: jdbc:mysql://10.109.173.83:3306/example
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
