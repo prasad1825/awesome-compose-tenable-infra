@@ -64,6 +64,6 @@ spec:
     app: grafana
   ports:
   - protocol: TCP
-    port: 3000
-    targetPort: 3005
+    port: 3008
+    targetPort: 3008
   
