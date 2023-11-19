@@ -97,11 +97,10 @@ spec:
         app: grafana
     spec:
       containers:
-        - name: grafana
+      - name: grafana
         image: grafana/grafana:latest
         ports:
         - containerPort: 3000
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -120,7 +119,7 @@ spec:
         app: prometheus
     spec:
       containers:
-        - name: prometheus
+      - name: prometheus
         image: prom/prometheus:latest
         ports:
         - containerPort: 9090
@@ -128,8 +127,8 @@ spec:
         - name: prometheus-storage
           mountPath: /prometheus
       volumes:
-        - name: prometheus-storage
-          emptyDir: {}
+      - name: prometheus-storage
+        emptyDir: {}
 
 ---
 apiVersion: v1
