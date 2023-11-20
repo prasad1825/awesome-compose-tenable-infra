@@ -8,7 +8,7 @@ metadata:
 data:
   prometheus.rules: |-
     groups:
-    - name: devopscube demo alert
+    - name:  demo alert
       rules:
       - alert: High Pod Memory
         expr: sum(container_memory_usage_bytes) > 1
@@ -90,7 +90,7 @@ data:
           target_label: kubernetes_pod_name
       - job_name: 'kube-state-metrics'
         static_configs:
-          - targets: ['kube-state-metrics.kube-system.svc.cluster:8080']
+          - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
       - job_name: 'kubernetes-cadvisor'
         scheme: https
         tls_config:
