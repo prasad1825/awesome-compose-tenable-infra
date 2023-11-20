@@ -85,7 +85,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus-deployment
-  namespace: monitoring
+  namespace: tenabledemo
   labels:
     app: prometheus-server
 spec:
